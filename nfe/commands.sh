@@ -3,7 +3,7 @@
 function nfe() {
     PRESENT_DIR=$(pwd)
     cd
-    cd /Users/vipul/Documents/coding/python_automation/nfe
+    cd /Users/vipul/Documents/coding/python_automation/nfe/Notes
     python notes.py $1 $2 $3
     cd $PRESENT_DIR
 }
