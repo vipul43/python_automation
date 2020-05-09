@@ -22,6 +22,7 @@ ruby = ".rb"
 php = ".php"
 csharp = ".cs"
 yaml = ".yaml"
+yml = ".yml"
 xml = ".xml"
 org = ".org"
 
@@ -44,7 +45,8 @@ extensions = {
     "org" : org, ".org" : org,
     "php" : php, ".php" : php,
     "ruby" : ruby, ".rb" : ruby,
-    "xml" : xml, ".xml" : xml
+    "xml" : xml, ".xml" : xml,
+    "yml": yml, ".yml": yml
 }
 
 
@@ -55,7 +57,7 @@ extensions = {
     - extension ==> name of the extension in which you want to open the file(default is set to '.txt') also the extensions are according to my workflow
 
 """
-def findFolder(foldername):   
+def findFolder(foldername, search_directory):   
     path = ""
     flag = False
     #finding for the directory named foldername in Documents directory
@@ -63,8 +65,19 @@ def findFolder(foldername):
     #iterating through each tuple and finding the foldername directory
     #if found return True and path
     #else return False and ''
-
-    for item in os.walk("/Users/vipul/Documents"):
+    os.chdir("/Users/vipul")
+    if(search_directory):
+        sub_flag = True
+        for x in os.listdir('/Users/vipul'):
+            if(os.path.isdir(x)):
+                if(x==search_directory):
+                    os.chdir('./' + search_directory)
+                    sub_flag = False
+        if(sub_flag):
+            os.chdir("./Documents")
+    else:
+        os.chdir("./Documents")
+    for item in os.walk('.'):
         for ele in item[1]:
             if(ele==foldername):
                 path=item[0] + "/" + foldername
@@ -79,6 +92,11 @@ def create():
     extension = str(sys.argv[3])
     foldername = str(sys.argv[2])
     filename = str(sys.argv[1])
+    try:
+        search_directory = str(sys.argv[4])
+    except Exception:
+        search_directory = None
+        pass
 
     #confirming the extension of the file
     try:
@@ -93,7 +111,7 @@ def create():
     #search for a folder in whole documents directory
     #and navigate to it if found
     #else keeo the file in "/Users/vipul/Documents/general" directory
-    folder_found, path = findFolder(foldername)
+    folder_found, path = findFolder(foldername, search_directory)
     if(folder_found):
         os.chdir(path)
     else:
