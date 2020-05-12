@@ -2,7 +2,7 @@ import sys
 import os
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
-sys.path.insert(1, '/Users/vipul/Documents')
+sys.path.insert(1, '/Users/vipul/Documents/secrets')
 from secrets import user, secret
 import time
 
