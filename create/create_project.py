@@ -2,8 +2,10 @@ import sys
 import os
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
-# from secrets import secret
+sys.path.insert(1, '/Users/vipul/Documents')
+from secrets import user, secret
 import time
+
 
 def folderAlreadyExists(title):
     #checking for the folder with same name
@@ -27,7 +29,7 @@ def createRepoGithub(title):
 
     #enter username
     username = browser.find_elements_by_xpath("//*[@id='login_field']")[0]
-    username.send_keys("vipul43")
+    username.send_keys(user)
     time.sleep(1)
 
     #enter pass word
