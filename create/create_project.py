@@ -89,8 +89,6 @@ def createProject():
         else:
             # else raise error
             print("DIR_ERR")
-    #checking for this failure message in shell script
-
 
 if __name__ == "__main__":
     createProject()
