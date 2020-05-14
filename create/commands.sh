@@ -1,5 +1,6 @@
 
 function create() {
+    PRESENT_DIR=$(pwd)
     cd
     cd /Users/vipul/Documents/coding/python_automation/create
     CHANGE_DIR=$(python create_project.py $1)
@@ -20,6 +21,11 @@ function create() {
         then
             echo "DIR_ERR: $1 project already exists"
             echo "FIX: choose a different project name"
+        elif [ $i = "SEL_ERR" ]
+        then
+            echo "SEL_ERR: Selenium is not working properly"
+            echo "FIX: try after some time"
+            cd $PRESENT_DIR
         fi
     done
 }
