@@ -22,7 +22,7 @@ def createRepoGithub(title):
     options = Options()
     options.headless = True
     #running in headless mode
-    browser = webdriver.Firefox(options=options)
+    browser = webdriver.Firefox(options=options, executable_path=r'/Users/vipul')
     #open browser and get github site
     browser.get("https://github.com/login")
     time.sleep(1)
