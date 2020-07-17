@@ -77,7 +77,7 @@ def createProject():
         # if argument doesnot exist raise error
         print("NAME_ERR")
     else:
-        os.chdir("/Users/vipul/Documents/coding/projects")
+        os.chdir("/Users/vipul/Documents/coding/github")
         # checking for folder with same name
         # if no proceeding to create new folder and git repo
         if(not folderAlreadyExists(title)):
