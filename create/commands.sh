@@ -11,7 +11,7 @@ function create() {
             echo "EXIT: 0"
             echo "Successfully created the git repository $1"
             echo "Successfully cloned the git repository $1"
-            cd /Users/vipul/Documents/coding/projects/$1
+            cd /Users/vipul/Documents/coding/github/$1
         elif [ $i = "NAME_ERR" ]
         then
             echo "NAME_ERR: No project name mentioned"
