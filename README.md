@@ -35,4 +35,11 @@
 - copies the corresponding cp template file(cpp/python) depending on the extension of filename
 - pastes it to the filename
 - keeps the current directory same as before
- 
+## daily
+- command: daily
+- periodicity: 12:00AM daily
+- takes no arguments
+- checks for markdown file with current date if available then reports back
+- if not available creates and reports back
+- periodically checks for file with current date if available then goes back to sleep
+- if not available creates and logs it to .daily file and then sleeps
