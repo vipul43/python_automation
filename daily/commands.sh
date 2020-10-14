@@ -14,13 +14,3 @@ function daily() {
         echo "FIX: CHANGE LOCATION TO /Users/vipul/Documents/todolist"
     fi
 }
-
-while true
-do
-    DATE=`date | cut -d' ' -f4`
-    if [[ $DATE == "00:00:00" ]]
-    then
-            daily
-            sleep 3600s
-    fi
-done
