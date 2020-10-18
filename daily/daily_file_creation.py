@@ -1,6 +1,6 @@
 import sys
 import os
-from datetime import date
+from datetime import date, timedelta
 import time
 
 def fileNotFound(filename):
@@ -13,6 +13,11 @@ def fileNotFound(filename):
 def getTodaysFileName():
     return str(date.today()) + ".md"
 
+def copy_previous_days_contents():
+    today = date.today()
+    yesterday = today - timedelta(days=1)
+    os.system('cp ./'+str(yesterday)+'.md ./'+str(today)+str('.md'))
+
 def program():
     filedir = sys.argv[1]
     filename = getTodaysFileName()
@@ -20,6 +25,7 @@ def program():
     os.chdir(filedir)
     if(fileNotFound(filename)):
         os.system('touch ' + filename)
+        copy_previous_days_contents()
 
 if __name__ == '__main__':
     program()
