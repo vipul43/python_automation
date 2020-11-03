@@ -37,9 +37,16 @@
 - keeps the current directory same as before
 ## daily
 - command: daily
-- periodicity: 12:00AM daily
+- periodicity: 12:00AM daily [PENDING]
 - takes no arguments
 - checks for markdown file with current date if available then reports back
 - if not available creates and reports back
-- periodically checks for file with current date if available then goes back to sleep
+- periodically checks for file with current date if available then goes back to sleep [PENDING]
 - if not available creates and logs it to .daily file and then sleeps
+## dump
+- command: dump [size limit]
+- takes optional argument to limit the size of current directory tree, default to 100000bytes
+- scans the current directory tree and deletes empty files, hidden files, and LRU files until the size limit is met
+- before initiating the dump sequence, password must be validated
+- LRU files, one at a time are deleted until the size limit criterion is met
+- ends with success message "DUMP SUCCESSFUL" 
